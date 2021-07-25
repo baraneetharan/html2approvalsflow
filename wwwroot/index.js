@@ -24,7 +24,7 @@ function getApprovals() {
 
 
 function oapflow(data) {
-    alert(JSON.stringify(data));
+    // alert(JSON.stringify(data));
   
     $.ajax({
       type: "POST",

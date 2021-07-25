@@ -14,6 +14,7 @@ INSERT INTO `approvals` VALUES (6, '2001', '3', 'baraneetharan.r@kgisl.com', '',
 INSERT INTO `approvals` VALUES (7, '3001', '1', 'baraneetharan.r@kgisl.com', '', '');
 INSERT INTO `approvals` VALUES (8, '3001', '2', 'baraneetharan.r@kgisl.com', '', '');
 INSERT INTO `approvals` VALUES (9, '3001', '3', 'baraneetharan.r@kgisl.com', '', '');
+INSERT INTO `approvals` VALUES (10, '4001', '1', 'baraneetharan.r@kgisl.com', '', '');
 
 ```
 
