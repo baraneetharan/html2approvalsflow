@@ -1,0 +1,108 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using html2approvalsflow.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using restapidemo;
+
+namespace html2approvalsflow.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CompanyController : ControllerBase
+    {
+        private readonly ApprovalsDBContext _context;
+
+        public CompanyController(ApprovalsDBContext context)
+        {
+            _context = context;
+        }
+
+        // GET: api/Company
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Company>>> GetCompany()
+        {
+            return await _context.Company.ToListAsync();
+        }
+
+        // GET: api/Company/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Company>> GetCompany(long id)
+        {
+            var Company = await _context.Company.FindAsync(id);
+
+            if (Company == null)
+            {
+                return NotFound();
+            }
+
+            return Company;
+        }
+
+        // PUT: api/Company/5
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPut("{id}")]
+        public async Task<IActionResult> PutCompany(long id, Company Company)
+        {
+            if (id != Company.Id)
+            {
+                return BadRequest();
+            }
+
+            _context.Entry(Company).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TodoItemExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
+
+            return NoContent();
+        }
+
+        // POST: api/Company
+        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
+        [HttpPost]
+        public async Task<ActionResult<Company>> PostCompany(Company Company)
+        {
+            _context.Company.Add(Company);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetTodoItem", new { id = Company.Id }, Company);
+        }
+
+        // DELETE: api/Company/5
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCompany(long id)
+        {
+            var Company = await _context.Company.FindAsync(id);
+            if (Company == null)
+            {
+                return NotFound();
+            }
+
+            _context.Company.Remove(Company);
+            await _context.SaveChangesAsync();
+
+            return NoContent();
+        }
+
+        private bool TodoItemExists(long id)
+        {
+            return _context.Company.Any(e => e.Id == id);
+        }
+    }
+}
