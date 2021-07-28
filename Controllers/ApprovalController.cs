@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using html2approvalsflow.Models;
 using restapidemo;
+using Newtonsoft.Json;
 
 namespace html2approvalsflow.Controllers
 {
@@ -82,6 +83,21 @@ namespace html2approvalsflow.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetApproval", new { id = approval.Id }, approval);
+        }
+        // [HttpGet("GetByReqid/{reqid}")]
+        [HttpPost("PostApprovals")]
+        public async Task<ActionResult<Approval>> PostApprovals([FromBody]List<Approval> approvals)
+        {
+            Console.WriteLine(approvals.Count.ToString());
+            
+            foreach (var item in approvals)
+            {
+                Console.WriteLine(item.emailto);
+            }
+            _context.approvals.AddRange(approvals);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetApprovals",  approvals);
         }
 
         // DELETE: api/Approval/5
