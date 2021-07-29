@@ -17,7 +17,13 @@ INSERT INTO `approvals` VALUES (9, '3001', '3', 'baraneetharan.r@kgisl.com', '',
 INSERT INTO `approvals` VALUES (10, '4001', '1', 'baraneetharan.r@kgisl.com', '', '');
 
 ```
-
+```
+INSERT INTO ResourceRequests VALUES (1,'Candidate1','.Net Core developer','Dolphin');
+INSERT INTO ResourceRequests VALUES (2,'Candidate2','ASP.Net Core developer','NSure');
+INSERT INTO ResourceRequests VALUES (3,'Candidate3','Full stack developer','Dolphin');
+INSERT INTO ResourceRequests VALUES (4,'Candidate4','Spring developer','Dolphin');
+INSERT INTO ResourceRequests VALUES (5,'Candidate5','PHP developer','Dolphin');
+```
 ```
 dotnet new gitignore
 ```

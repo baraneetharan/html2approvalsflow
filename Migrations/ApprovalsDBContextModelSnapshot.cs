@@ -55,6 +55,26 @@ namespace html2approvalsflow.Migrations
 
                     b.ToTable("companies");
                 });
+
+            modelBuilder.Entity("html2approvalsflow.Models.ResourceRequest", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("candidate")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("position")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("team")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ResourceRequests");
+                });
 #pragma warning restore 612, 618
         }
     }

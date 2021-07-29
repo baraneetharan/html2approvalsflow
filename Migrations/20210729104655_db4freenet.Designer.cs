@@ -8,7 +8,7 @@ using restapidemo;
 namespace html2approvalsflow.Migrations
 {
     [DbContext(typeof(ApprovalsDBContext))]
-    [Migration("20210724200818_db4freenet")]
+    [Migration("20210729104655_db4freenet")]
     partial class db4freenet
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -56,6 +56,26 @@ namespace html2approvalsflow.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("companies");
+                });
+
+            modelBuilder.Entity("html2approvalsflow.Models.ResourceRequest", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("candidate")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("position")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("team")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ResourceRequests");
                 });
 #pragma warning restore 612, 618
         }

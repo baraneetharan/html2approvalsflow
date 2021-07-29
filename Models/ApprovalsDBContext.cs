@@ -13,6 +13,7 @@ namespace restapidemo
         }
         public DbSet<Company> companies { get; set; }
         public DbSet<Approval> approvals { get; set; }
+        public DbSet<ResourceRequest> ResourceRequests { get; set; }
 
     }
 }

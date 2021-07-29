@@ -1,9 +1,16 @@
+console.log(localStorage.getItem("requestid"));
+
 const uri = "https://html2approvalsflow.herokuapp.com/api/Approval";
 // const uri = "https://localhost:5001/api/Approval";
-const posturi="https://localhost:5001/api/Approval/PostApprovals";
+const posturi = "https://localhost:5001/api/Approval/PostApprovals";
 const parentflow =
   "https://prod-15.southeastasia.logic.azure.com:443/workflows/8529997a7ef049758575212d36507697/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=C9GHsh4dl5GYPIZTQQKl1z0C4_7e4lJZB_SNZx9lQjY";
 let approvals = [];
+
+function getRequestid() {
+  document.getElementById("requestid").value =
+    localStorage.getItem("requestid");
+}
 
 function getApprovals() {
   let reqid = document.getElementById("reqid").value;
@@ -46,15 +53,13 @@ function addApproval() {
   // let fn = document.getElementById("reqid").value;
   // let ln = document.getElementById("level").value;
   // let email = document.getElementById("emailto").value;
-alert(document.getElementById("requestid").value);
+  alert(document.getElementById("requestid").value);
 
   let tBody = document.getElementById("customers");
   let tr = tBody.insertRow();
 
   let td1 = tr.insertCell(0);
-  td1.appendChild(
-    document.createTextNode(document.getElementById("id").value)
-  );
+  td1.appendChild(document.createTextNode(document.getElementById("id").value));
 
   let td2 = tr.insertCell(1);
   td2.appendChild(
@@ -88,36 +93,40 @@ alert(document.getElementById("requestid").value);
 
 function postApprovals() {
   alert("postApprovals called");
-  var table = $('#result').tableToJSON();    
+  var table = $("#result").tableToJSON();
   // console.log(JSON.stringify(table));
   // var table =[{"FN":"baraneetharan","LN":"Last","email":"baraneetharan@live.com"},{"FN":"myname","LN":"Last","email":"baraneetharan.r@kgisl.com"}]
-  var table2 =[{
-    "Id":0,
-    "reqid":"5001",
-    "level":"1",
-    "emailto":"baraneetharan.r@kgisl.com",
-    "status":"",
-    "comments":""},
+  var table2 = [
     {
-    "Id":0,
-    "reqid":"5001",
-    "level":"2",
-    "emailto":"baraneetharan.r@kgisl.com",
-    "status":"",
-    "comments":""}];
-console.log(JSON.stringify(table));
+      Id: 0,
+      reqid: "5001",
+      level: "1",
+      emailto: "baraneetharan.r@kgisl.com",
+      status: "",
+      comments: "",
+    },
+    {
+      Id: 0,
+      reqid: "5001",
+      level: "2",
+      emailto: "baraneetharan.r@kgisl.com",
+      status: "",
+      comments: "",
+    },
+  ];
+  console.log(JSON.stringify(table));
 
-$.ajax({
-  type: "POST",
-  url: posturi,
-  data: JSON.stringify(table),
-  contentType: "text/json; charset=utf-8",
-  dataType: "text",
-  success: function (response) {
-    //   console.log(response);
-  },
-  error: function (result) {
-    //   alert("msg");
-  },
-});
+  $.ajax({
+    type: "POST",
+    url: posturi,
+    data: JSON.stringify(table),
+    contentType: "text/json; charset=utf-8",
+    dataType: "text",
+    success: function (response) {
+      //   console.log(response);
+    },
+    error: function (result) {
+      //   alert("msg");
+    },
+  });
 }
