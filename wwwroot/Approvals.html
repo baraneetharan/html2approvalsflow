@@ -7,19 +7,18 @@
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/table-to-json@1.0.0/lib/jquery.tabletojson.min.js" integrity="sha256-H8xrCe0tZFi/C2CgxkmiGksqVaxhW0PFcUKZJZo1yNU=" crossorigin="anonymous"></script>
-    
     <script src="approvals.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body onload="getRequestid()">
-    <h1>Approval Details </h1>
     <p id="req"></p>
     <hr>
     <form class="signup-form" action="javascript:void(0);">
 
-        <!-- form header -->
+        <!-- form header 
         <div class="form-header">
-          <h1>Create Account</h1>
-        </div>
+          <h5>Create Account</h5>
+        </div>-->
   
         <!-- form body -->
         <div class="form-body">
@@ -27,32 +26,32 @@
           <!-- Firstname and Lastname -->
           <div class="horizontal-group">
             <div class="form-group left">
-                <label for="id" class="label-title">Request ID *</label>
+                <!-- <label for="id" class="label-title">Request ID *</label> -->
                 <input type="hidden" id="id" class="form-input" value="0" placeholder="enter your first name" required="required" />
               </div>
             <div class="form-group left">
-              <label for="requestid" class="label-title">Request ID *</label>
-              <input type="text" id="requestid" class="form-input" placeholder="enter your first name" required="required" />
+              <!-- <label for="requestid" class="label-title">Request ID *</label> -->
+              <input type="hidden" id="requestid" class="form-input" placeholder="enter your first name" required="required" />
             </div>
-            <div class="form-group center">
+            <div class="form-group left">
               <label for="level" class="label-title">Level *</label>
-              <input type="text" id="level" class="form-input" placeholder="enter your last name" />
+              <input type="text" id="level" class="form-input" placeholder="enter your level" />
             </div>
             <div class="form-group right">
               <label for="emailto" class="label-title">Email To *</label>
               <input type="email" id="emailto" class="form-input" placeholder="enter your email" required="required">
             </div>
             <div class="form-group center">
-                <label for="status" class="label-title">status *</label>
+                <!-- <label for="status" class="label-title">status *</label> -->
                 <input type="hidden" id="status" class="form-input" value="" placeholder="enter your last name" />
               </div>
               <div class="form-group center">
-                <label for="comments" class="label-title">Comments *</label>
+                <!-- <label for="comments" class="label-title">Comments *</label> -->
                 <input type="hidden" id="comments" class="form-input" value="" placeholder="enter your last name" />
               </div>
           </div>
           <button class="btn" onclick="addApproval()">Add</button>
-          <table  id="result" border="1">
+          <table class="content-table" id="result" border="1">
             <tr>
                 <th>Id</th>
                 <th>reqid</th>

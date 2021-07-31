@@ -138,5 +138,26 @@ namespace html2approvalsflow.Controllers
 
             return approval;
         }
+
+        [HttpGet("GetPendingApproval/{reqid}")]
+        // Task<ActionResult<IEnumerable<Approval>>>
+        public async Task<ActionResult<IEnumerable<Approval>>> GetPendingApproval(string reqid)
+        {
+    //          var longStayingGuest = boardinglst
+    // .Select(x => new { x.GuestName, (x.DateTo.Date - x.DateFrom.Date).Days }).OrderByDescending(o => o.Days).Take(1);
+
+            // var approval = await _context.approvals.Where(x => x.reqid == reqid).ToListAsync();
+
+            var approval = await _context.approvals.Where(x => x.reqid == reqid &&
+                string.IsNullOrEmpty(x.status)).OrderBy(o => o.Id).Take(1).ToListAsync();
+
+
+            if (approval == null)
+            {
+                return NotFound();
+            }
+
+            return approval;
+        }
     }
 }

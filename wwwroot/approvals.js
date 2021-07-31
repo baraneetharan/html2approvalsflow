@@ -2,7 +2,7 @@ const posturi = "https://localhost:5001/api/Approval/PostApprovals";
 
 function getRequestid() {
   document.getElementById("req").innerHTML =
-    "Request ID: " + localStorage.getItem("requestid");
+    "Approval levels for Request ID: " + localStorage.getItem("requestid");
 }
 
 function addApproval() {

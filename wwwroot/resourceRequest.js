@@ -27,7 +27,8 @@ function _displayItems(data) {
 
   data.forEach((item) => {
     let addApproveBtn = button.cloneNode(false);
-    addApproveBtn.innerText = "Add Approvals";
+    // addApproveBtn.innerText = "Add Approvals";
+    addApproveBtn.setAttribute("class","far fa-check-square");
     addApproveBtn.setAttribute("onclick", `clickItem(${item.id})`);
 
     let tr = tBody.insertRow();

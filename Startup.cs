@@ -44,7 +44,7 @@ namespace html2approvalsflow
             // Use UseFileServer instead of UseDefaultFiles & UseStaticFiles
             FileServerOptions fileServerOptions = new FileServerOptions();
             fileServerOptions.DefaultFilesOptions.DefaultFileNames.Clear();
-            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Add("ResourceRequestList.html");
+            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Add("test.html");
 
             app.UseFileServer(fileServerOptions);
 
