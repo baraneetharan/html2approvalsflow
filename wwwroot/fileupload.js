@@ -1,5 +1,6 @@
 // const fileuri = "https://localhost:5001/Uploader";
-const fileuri = "html2approvalsflow.herokuapp.com/Uploader";
+// const fileuri = "https://html2approvalsflow.herokuapp.com/Uploader";
+const fileuri = "/Uploader";
 
 function uploadFile2RestAPI() {
     alert("uploadFile2RestAPI");
