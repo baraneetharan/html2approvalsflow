@@ -44,12 +44,17 @@ namespace html2approvalsflow
             // Use UseFileServer instead of UseDefaultFiles & UseStaticFiles
             FileServerOptions fileServerOptions = new FileServerOptions();
             fileServerOptions.DefaultFilesOptions.DefaultFileNames.Clear();
-            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Add("test.html");
+            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Add("pendingApprovals.html");
 
             app.UseFileServer(fileServerOptions);
 
             app.UseDefaultFiles();
             app.UseStaticFiles();
+
+            //Accept All HTTP Request Methods from all origins
+            app.UseCors(builder =>
+                builder.AllowAnyHeader().AllowAnyOrigin().AllowAnyMethod());
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
