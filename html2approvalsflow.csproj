@@ -17,6 +17,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+    <PackageReference Include="NSwag.AspNetCore" Version="13.12.1" />
     <!-- <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" /> -->
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="5.0.1" />    
     <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
